@@ -32,7 +32,7 @@ def middleware_jwt_required(f):
         response_content = json.loads(response.content)
 
         if response.status_code != 200:
-            return jsonify(response_content)
+            return jsonify(response_content), response.status_code
         return f(*args, **kwargs)
     return decorator
 
