@@ -6,6 +6,12 @@
 Library provides a connector with annotations that makes possible to check the integrity of a jwt token in a microservice architecture. <br>
 Developed to make it easier to validade and work with JWT Authentication on a Flask micro-framework. 
 
+## Instalation
+
+Run the command in shell:
+
+> pip3 install flask-middleware-jwt
+
 ## App Configuration
 
 Example on how to set your flask app configuration: 
