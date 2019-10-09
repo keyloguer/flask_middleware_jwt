@@ -3,7 +3,7 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)]()
 [![PyPi download](https://badge.fury.io/py/ansiocolortags.svg)](https://pypi.org/project/flask-middleware-jwt/)
 
-Library providades a connector with annotations that makes possible to check the integrity of a jwt token in a micro-service architecture. <br>
+Library provides a connector with annotations that makes possible to check the integrity of a jwt token in a microservice architecture. <br>
 Developed to make it easier to validade and work with JWT Authentication on a Flask micro-framework. 
 
 ## App Configuration
@@ -24,7 +24,7 @@ Example on how to set your flask app configuration:
 ### JWT Token
 @middleware_jwt_required 
 
-Validades initially if tokens via headers in requests contains "Autorization" before your jwt token and returns an invalid token message otherwise. 
+Validates initially if tokens via headers in requests contains "Autorization" before your jwt token and returns an invalid token message otherwise. 
 
 ## Example - How to run
 
@@ -55,7 +55,7 @@ For Curl Commands:
  
 > curl -d '{"username": "test", "password": "test"}' -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/login 
 
-A sucessfull response should return you <br>
+A successful response should return you <br>
 {"access_token": "you_token"}
 
 <br>
