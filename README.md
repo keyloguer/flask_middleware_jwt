@@ -1,7 +1,7 @@
 # Flask Middleware JWT
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)]()
-[![PyPi download](https://badge.fury.io/py/ansiocolortags.svg)](https://pypi.org/project/flask-middleware-jwt/)
+[![PyPi download](/pypi.svg)](https://pypi.org/project/flask-middleware-jwt/)
 
 Library provides a connector with annotations that makes possible to check the integrity of a jwt token in a microservice architecture. <br>
 Developed to make it easier to validade and work with JWT Authentication on a Flask micro-framework. 
