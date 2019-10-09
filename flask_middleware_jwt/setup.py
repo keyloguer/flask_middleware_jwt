@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='flask_middleware_jwt',
-    version='1.1',
+    version='1.2',
     author='Daniel Pereira Zitei, Carla de Almeida Madureira',
     author_email='daniel.zitei@gmail.com, carla.almadureira@gmail.com',
     packages=['flask_middleware_jwt'],

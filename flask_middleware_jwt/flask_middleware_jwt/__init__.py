@@ -8,8 +8,6 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-
-
 CONFIG_DEFAULTS = {
     'MIDDLEWARE_URL_IDENTITY': '0.0.0.0:5000',
     'MIDDLEWARE_VERIFY_ENDPOINT': '/token/verify',
@@ -29,6 +27,9 @@ def middleware_jwt_required(f):
 
         response = middleware_request(request.headers["Authorization"])
 
+        if type(response) == tuple:
+            return response
+            
         response_content = json.loads(response.content)
 
         if response.status_code != 200:
@@ -58,24 +59,30 @@ def get_raw_jwt():
     return jwt.decode(header, current_app.config.get('JWT_SECRET'), algorithms=['HS256'])
 
 def middleware_request(token):
+    if current_app.config.get('MIDDLEWARE_VERIFY_HTTP_VERB') == 'GET':
+        return middleware_get_request(token)    
+    return middleware_post_request(token)
+
+
+def middleware_get_request(token):
     try:
-        if current_app.config.get('MIDDLEWARE_VERIFY_HTTP_VERB') == 'GET':
-            return middleware_get_request(token)
-            
-        return middleware_post_request(token)
+        response = requests.get('{}{}'.format(current_app.config.get('MIDDLEWARE_URL_IDENTITY')
+                                         ,current_app.config.get('MIDDLEWARE_VERIFY_ENDPOINT'))
+                           ,headers={"Authorization": token})
+        return response
     except Exception as e:
         logger.error(e)
         return jsonify({'message': 'API OFFLINE'}), 500
 
-def middleware_get_request(token):
-    return requests.get('{}{}'.format(current_app.config.get('MIDDLEWARE_URL_IDENTITY')
-                                         ,current_app.config.get('MIDDLEWARE_VERIFY_ENDPOINT'))
-                           ,headers={"Authorization": token})
-
 def middleware_post_request(token):
-    return requests.post('{}{}'.format(current_app.config.get('MIDDLEWARE_URL_IDENTITY')
+    try:
+        response = requests.post('{}{}'.format(current_app.config.get('MIDDLEWARE_URL_IDENTITY')
                                          ,current_app.config.get('MIDDLEWARE_VERIFY_ENDPOINT'))
                            ,headers={"Authorization": token})
+        return response
+    except Exception as e:
+        logger.error(e)
+        return jsonify({'message': 'API OFFLINE'}), 500
 
 class Middleware(object):
     def __init__(self, app):
