@@ -17,6 +17,7 @@ Example on how to set your flask app configuration:
 |MIDDLEWARE_BEARER | True or False |
 |MIDDLEWARE_VERIFY_HTTP_VERB | GET or POST |
 |JWT_SECRET | your secret |
+|JWT_ALGORITHMS| ['HS256']|
 
 
 ## Annotations

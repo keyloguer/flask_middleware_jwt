@@ -8,6 +8,7 @@ app.config['MIDDLEWARE_VERIFY_ENDPOINT']  = '/token/verify'
 app.config['MIDDLEWARE_BEARER']           = True
 app.config['MIDDLEWARE_VERIFY_HTTP_VERB'] = 'GET'
 app.config['JWT_SECRET']                  = 'super-secret'
+app.config['JWT_ALGORITHMS']              = ['HS256']
 
 middleware = Middleware(app)
 

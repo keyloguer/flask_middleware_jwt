@@ -13,7 +13,8 @@ CONFIG_DEFAULTS = {
     'MIDDLEWARE_VERIFY_ENDPOINT': '/token/verify',
     'MIDDLEWARE_BEARER': True,
     'MIDDLEWARE_VERIFY_HTTP_VERB': 'GET',
-    'JWT_SECRET': 'YOUR_SECRET_KEY'
+    'JWT_SECRET': 'YOUR_SECRET_KEY',
+    'JWT_ALGORITHMS': ['HS256']
 }
 
 def middleware_jwt_required(f):
@@ -56,7 +57,7 @@ def get_jwt_identity():
 
 def get_raw_jwt():
     header = get_jwt()
-    return jwt.decode(header, current_app.config.get('JWT_SECRET'), algorithms=['HS256'])
+    return jwt.decode(header, current_app.config.get('JWT_SECRET'), algorithms=current_app.config.get('JWT_ALGORITHMS'))
 
 def middleware_request(token):
     if current_app.config.get('MIDDLEWARE_VERIFY_HTTP_VERB') == 'GET':
