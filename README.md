@@ -3,8 +3,12 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)]()
 [![PyPi download](/pypi.svg)](https://pypi.org/project/flask-middleware-jwt/)
 
-Library provides a connector with annotations that makes possible to check the integrity of a jwt token in a microservice architecture. <br>
-Developed to make it easier to validade and work with JWT Authentication on a Flask micro-framework. 
+
+This library was originally developed in a project where it was necessary to make usage of the same package among several smaller services on a microservice archictecture. 
+It was needed that a JWT token was validated on requests, checking whether it had the required structure and if it hadn't expired. <br>
+
+Flask Middleware JWT aims to improve a flask micro-framework with a new way of authenticating your services. For further reading on it's functionalities, plase check [our medium article](https://medium.com/@daniel.zitei/flask-middleware-jwt-1ae476a360e6?sk=2e90d6074ac3ebf116fe3024ad62f).
+
 
 ## Instalation
 
@@ -16,10 +20,10 @@ Run the command in shell:
 
 Example on how to set your flask app configuration: 
 
-| app.config | possibles values |
+| app.config | possible values |
 |------------|------------------|
 |MIDDLEWARE_URL_IDENTITY| http://0.0.0.0:5000 |
-|MIDDLEWARE_VERIFY_ENDPOINT | /path_to_you_endpoint/verify |
+|MIDDLEWARE_VERIFY_ENDPOINT | your_endpoint/token/verify |
 |MIDDLEWARE_BEARER | True or False |
 |MIDDLEWARE_VERIFY_HTTP_VERB | GET or POST |
 |JWT_SECRET | your secret |
