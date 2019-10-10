@@ -3,8 +3,7 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)]()
 [![PyPi download](/pypi.svg)](https://pypi.org/project/flask-middleware-jwt/)
 
-![alt text](https://miro.medium.com/max/1200/1*2I8mZ4C6C5u0n_LSninJ1A.png | width=60)
-
+<img src="https://miro.medium.com/max/1200/1*2I8mZ4C6C5u0n_LSninJ1A.png" alt="drawing" width="300px"/>
 
 This library was originally developed in a project where it was necessary to make usage of the same package among several smaller services on a microservice archictecture. 
 It was needed that a JWT token was validated on requests, checking whether it had the required structure and if it hadn't expired. <br>
