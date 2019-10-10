@@ -3,7 +3,7 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)]()
 [![PyPi download](/pypi.svg)](https://pypi.org/project/flask-middleware-jwt/)
 
-![alt text](https://miro.medium.com/max/1200/1*2I8mZ4C6C5u0n_LSninJ1A.png)
+![alt text](https://miro.medium.com/max/1200/1*2I8mZ4C6C5u0n_LSninJ1A.png | width=60)
 
 
 This library was originally developed in a project where it was necessary to make usage of the same package among several smaller services on a microservice archictecture. 
@@ -25,7 +25,7 @@ Example on how to set your flask app configuration:
 | app.config | possible values |
 |------------|------------------|
 |MIDDLEWARE_URL_IDENTITY| http://0.0.0.0:5000 |
-|MIDDLEWARE_VERIFY_ENDPOINT | your_endpoint/token/verify |
+|MIDDLEWARE_VERIFY_ENDPOINT | /token/verify |
 |MIDDLEWARE_BEARER | True or False |
 |MIDDLEWARE_VERIFY_HTTP_VERB | GET or POST |
 |JWT_SECRET | your secret |
